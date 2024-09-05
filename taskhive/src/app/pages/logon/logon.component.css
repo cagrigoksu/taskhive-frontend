@@ -1,0 +1,16 @@
+.form-container
+{
+    padding-top: 10%;
+    text-align: center;
+}
+
+.form-field
+{
+    width: 25%;
+}
+
+.form-submit-button
+{
+    width: 15%;
+    background-color: #223946;
+}

@@ -1,0 +1,33 @@
+<div class="mat-elevation-z8 jobPostListContainer">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef> Title </th>
+            <td mat-cell class="rowCell" *matCellDef="let data"> {{data.title}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="city">
+            <th mat-header-cell *matHeaderCellDef> City </th>
+            <td mat-cell class="rowCell" *matCellDef="let data"> {{data.city}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="country">
+            <th mat-header-cell *matHeaderCellDef> Country </th>
+            <td mat-cell class="rowCell" *matCellDef="let data"> {{data.country}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+        <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
+</mat-paginator>
+</div>
+
+
+<div *ngFor="let obj of jobList">
+    <p>{{obj.title}}</p>
+</div>
+<div>
+    <p>userdata, {{userProfile}}</p>
+</div>
+
+<button (click)="logOut()">Logout</button>
