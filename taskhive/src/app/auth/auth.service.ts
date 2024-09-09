@@ -10,12 +10,12 @@ export class AuthService {
   constructor(private httpClient: HttpClient) { }
 
   //http_Client = inject(HttpClient);
-  baseUrl = 'https://localhost:7134/api/UserAuth';
-  //baseUrl = 'https://xxxxx.azurewebsites.net/api/UserAuth';
+  //baseUrl = 'https://localhost:7134/api/UserAuth';
+  baseUrl = 'https://taskhive-backend.azurewebsites.net/api/UserAuth';
 
   //7134: jobboard
   //7062: apigateway
-  //XXXX: user service
+  //7007: user service
   
   logIn(data:any)
   {
