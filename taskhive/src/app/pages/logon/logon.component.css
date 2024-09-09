@@ -9,10 +9,24 @@
     width: 25%;
 }
 
+@media only screen and (max-width: 600px) {
+    .form-field {
+        width: 60%;
+    }
+  }
+
 .form-submit-button
 {
     width: 15%;
     background-color: #223946;
+}
+
+@media only screen and (max-width: 600px) {
+    .form-submit-button
+    {
+    width: 25%;
+    background-color: #223946;
+    }
 }
 
 .taskhive_logo
