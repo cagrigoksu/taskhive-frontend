@@ -1,33 +1,56 @@
-<div class="mat-elevation-z8 jobPostListContainer">
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-        <ng-container matColumnDef="title">
-            <th mat-header-cell *matHeaderCellDef> Title </th>
-            <td mat-cell class="rowCell" *matCellDef="let data"> {{data.title}} </td>
-        </ng-container>
-    
-        <ng-container matColumnDef="city">
-            <th mat-header-cell *matHeaderCellDef> City </th>
-            <td mat-cell class="rowCell" *matCellDef="let data"> {{data.city}} </td>
-        </ng-container>
-    
-        <ng-container matColumnDef="country">
-            <th mat-header-cell *matHeaderCellDef> Country </th>
-            <td mat-cell class="rowCell" *matCellDef="let data"> {{data.country}} </td>
-        </ng-container>
-        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-        <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+<div style="height: 100%;">
+  <div id="taskhive_header">
+    <table>
+      <tr>
+        <td>
+          <!-- <button (click)="logOut()">Logout</button> -->
+          <button (click)="logOut()" mat-raised-button class="taskhive_header_button"
+          type="submit"
+          color="primary"
+          style="color:rgb(255, 255, 255); background-color: rgb(107, 8, 8);">logout</button>
+        </td>
+      </tr>
     </table>
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
-</mat-paginator>
-</div>
+  </div>
+  <div id="main_container" style="height: 100%;">
+    <div class="mat-elevation-z8 projListContainer" style="height: 100%; overflow-y: auto;">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="height: 70%;">
 
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> ID </th>
+                <td mat-cell class="rowCell" *matCellDef="let data"> {{data.id}} </td>
+            </ng-container>
 
-<div *ngFor="let obj of jobList">
-    <p>{{obj.title}}</p>
-</div>
-<div>
-    <p>userdata, {{userProfile}}</p>
-</div>
+            <ng-container matColumnDef="project_name">
+                <th mat-header-cell *matHeaderCellDef> Project Name </th>
+                <td mat-cell class="rowCell" *matCellDef="let data"> {{data.project_name}} </td>
+            </ng-container>
 
-<button (click)="logOut()">Logout</button>
+            <ng-container matColumnDef="department">
+                <th mat-header-cell *matHeaderCellDef> Department </th>
+                <td mat-cell class="rowCell" *matCellDef="let data"> {{data.department}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="team">
+                <th mat-header-cell *matHeaderCellDef> Team </th>
+                <td mat-cell class="rowCell" *matCellDef="let data"> {{data.team}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="manager">
+                <th mat-header-cell *matHeaderCellDef> Manager </th>
+                <td mat-cell class="rowCell" *matCellDef="let data"> {{data.manager}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="number_of_members">
+                <th mat-header-cell *matHeaderCellDef> Number of Members </th>
+                <td mat-cell class="rowCell" *matCellDef="let data"> {{data.number_of_members}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+            <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
+    </mat-paginator>
+    </div>
+  </div>
+</div>

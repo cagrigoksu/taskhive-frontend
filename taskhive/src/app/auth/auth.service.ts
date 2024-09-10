@@ -10,13 +10,13 @@ export class AuthService {
   constructor(private httpClient: HttpClient) { }
 
   //http_Client = inject(HttpClient);
-  //baseUrl = 'https://localhost:7134/api/UserAuth';
+  //baseUrl = 'http://localhost:5257/api/UserAuth';
   baseUrl = 'https://taskhive-backend.azurewebsites.net/api/UserAuth';
 
   //7134: jobboard
   //7062: apigateway
   //7007: user service
-  
+
   logIn(data:any)
   {
     console.log("login data received.");
@@ -29,7 +29,7 @@ export class AuthService {
         }
       }));
   }
-  
+
   logOn(data:any)
   {
       return this.httpClient.post(`${this.baseUrl}/LogOn`, data)
@@ -38,9 +38,9 @@ export class AuthService {
           localStorage.setItem('authUser', JSON.stringify(result));
         }
       }));
-   
+
   }
-  
+
   logOut()
   {
     localStorage.removeItem('authUser');

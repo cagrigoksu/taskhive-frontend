@@ -1,8 +1,27 @@
-.jobPostListContainer{
-    padding: 5% 10% 5% 10%;
+.projListContainer{
+    padding: 1% 10% 1% 10%;
    }
-   
+
    .rowCell{
        background-color: white;
        color: black;
+   }
+
+   #taskhive_header{
+    background-color: rgb(229, 201, 201)
+   }
+
+   #taskhive_header > table{
+    width: 100%;
+   }
+
+   #taskhive_header > table > tr > td{
+    text-align: right;
+   }
+
+   .taskhive_header_button
+   {
+    width: 0%;
+    margin-left: 2%;
+    margin-right: 2%;
    }
