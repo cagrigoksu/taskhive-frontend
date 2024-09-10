@@ -1,11 +1,9 @@
 <div class="form-container">
     <img class="taskhive_logo" src="taskhive_logo.png" alt="TaskHive_Logo">
     <br>
-    <br>
-    <h1> Log On </h1>
-    <br/>
+    <h1 class="auth_header"> Log On </h1>
         <form class="form-group" [formGroup]="logonForm" (ngSubmit)="onSubmit()">
-        
+
             <div>
                 <mat-form-field class="example-full-width form-field">
                     <mat-label>Email</mat-label>
@@ -24,13 +22,11 @@
                     <input matInput name="passwordConfirmation" type="password" formControlName="passwordConfirmation" placeholder="Password Confirmation" autocomplete="off">
                 </mat-form-field>
             </div>
-
-            <br><br><br>
-            <button mat-raised-button class="form-submit-button" type="submit" color="primary">Log On</button>
+            <br>
+            <button mat-raised-button class="form-submit-button" style="color:rgb(255, 255, 255); background-color: rgb(0, 31, 63);" type="submit" color="primary">Log On</button>
         </form>
     </div>
-    
-    
-    
-    
-    
+
+
+
+
