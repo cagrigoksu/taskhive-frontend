@@ -8,7 +8,7 @@
    }
 
    #taskhive_header{
-    background-color: rgb(229, 201, 201)
+    background-color: rgb(244, 233, 233)
    }
 
    #taskhive_header > table{
@@ -24,4 +24,9 @@
     width: 0%;
     margin-left: 2%;
     margin-right: 2%;
+   }
+
+   .projListTable
+   {
+    background-color: #001f3f;
    }

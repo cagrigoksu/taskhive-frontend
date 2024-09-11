@@ -3,7 +3,7 @@ import { Router,RouterModule } from '@angular/router';
 import { AuthService } from '../../auth/auth.service';
 import { DataTransferService } from '../../services/data-transfer.service';
 import { ReactiveFormsModule, FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatButtonModule} from '@angular/material/button'; 
+import { MatButtonModule} from '@angular/material/button';
 import { MatFormField, MatInputModule } from '@angular/material/input';
 import { MatLabel } from '@angular/material/input';
 
@@ -29,7 +29,7 @@ export class LoginComponent {
   {
 
     if(this.loginForm.valid){
-      
+
       this.authService.logIn(this.loginForm.value)
       .subscribe((data: any) => {
         if(this.authService.isLoggedIn()){

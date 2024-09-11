@@ -14,7 +14,7 @@
   </div>
   <div id="main_container" style="height: 100%;">
     <div class="mat-elevation-z8 projListContainer" style="height: 100%; overflow-y: auto;">
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="height: 70%;">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 projListTable" style="height: 70%;">
 
             <ng-container matColumnDef="id">
                 <th mat-header-cell *matHeaderCellDef> ID </th>
@@ -49,8 +49,10 @@
             <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
             <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
         </table>
-        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
-    </mat-paginator>
+        <mat-paginator class="projListTable" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
     </div>
+    <div>
+      <p>userdata, {{ userProfile ? userProfile : 'No email available' }}</p>
+  </div>
   </div>
 </div>

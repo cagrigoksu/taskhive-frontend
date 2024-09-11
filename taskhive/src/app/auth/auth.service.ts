@@ -13,7 +13,7 @@ export class AuthService {
   //baseUrl = 'http://localhost:5257/api/UserAuth';
   baseUrl = 'https://taskhive-backend.azurewebsites.net/api/UserAuth';
 
-  //7134: jobboard
+  //7134: taskhive
   //7062: apigateway
   //7007: user service
 

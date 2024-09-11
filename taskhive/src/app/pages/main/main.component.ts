@@ -27,31 +27,35 @@ export class MainComponent {
 
   authService = inject(AuthService);
   dataTransferService = inject(DataTransferService);
-  projectervice = inject(ProjectService);
+  projectService = inject(ProjectService);
   router = inject(Router);
-  subscription!: Subscription;
+  cdr = inject(ChangeDetectorRef);
   columnsToDisplay = ['id', 'project_name', 'department', 'team', 'manager', 'number_of_members'];
 
-
-  getAllJobPostsResponse!: any;
-  jobList!: any;
+  projList!: any;
   userProfile!: any;
   dataSource!: any;
 
-  constructor(){}
+  constructor(){  }
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   ngOnInit(){
 
-    //this.dataTransferService.data$;
-    console.log("userData", this.userProfile);
-    this.projectervice.getAllJobPosts().subscribe((data:any) =>{
-      console.log("data", data);
-      this.jobList = data;
-      this.dataSource = new MatTableDataSource<MyClass>(this.jobList);
+    //this.userProfile = 'test@example.com';
+/*     this.dataTransferService.data$.subscribe((data:any) => {
+      this.userProfile = data.email;
+      this.cdr.detectChanges();
+      console.log("data", this.userProfile);
+    }); */
+
+    this.userProfile = this.dataTransferService.data$.subscribe();
+    console.log("data", this.userProfile.email);
+
+    this.projectService.getAllProjects().subscribe((data:any) =>{
+      this.projList = data;
+      this.dataSource = new MatTableDataSource<MyClass>(this.projList);
       this.dataSource.paginator = this.paginator;
-      console.log("getAllJobPostsResponse", this.jobList)
     });
   }
 
