@@ -42,15 +42,10 @@ export class MainComponent {
 
   ngOnInit(){
 
-    //this.userProfile = 'test@example.com';
-/*     this.dataTransferService.data$.subscribe((data:any) => {
-      this.userProfile = data.email;
-      this.cdr.detectChanges();
-      console.log("data", this.userProfile);
-    }); */
-
-    this.userProfile = this.dataTransferService.data$.subscribe();
-    console.log("data", this.userProfile.email);
+    this.dataTransferService.data$.subscribe(data =>
+      {
+            this.userProfile = data;
+      });
 
     this.projectService.getAllProjects().subscribe((data:any) =>{
       this.projList = data;

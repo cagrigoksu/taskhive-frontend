@@ -2,6 +2,7 @@
   <div id="taskhive_header">
     <table>
       <tr>
+        <td *ngIf="userProfile">{{ userProfile.email }}</td>
         <td>
           <!-- <button (click)="logOut()">Logout</button> -->
           <button (click)="logOut()" mat-raised-button class="taskhive_header_button"
@@ -52,7 +53,6 @@
         <mat-paginator class="projListTable" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
     </div>
     <div>
-      <p>userdata, {{ userProfile ? userProfile : 'No email available' }}</p>
   </div>
   </div>
 </div>
