@@ -7,7 +7,7 @@
           <table>
             <tr>
               <td>
-                <button mat-button [matMenuTriggerFor]="mainMenu"  class="taskhive_header_menu" *ngIf="userProfile">{{userProfile.email}}</button>
+                <button mat-button [matMenuTriggerFor]="mainMenu"  id="taskhive_header_menu" *ngIf="userProfile">{{userProfile.email}}</button>
                   <mat-menu #mainMenu="matMenu">
                     <button mat-menu-item >
                     <button mat-menu-item (click)="logOut()">logout</button>
