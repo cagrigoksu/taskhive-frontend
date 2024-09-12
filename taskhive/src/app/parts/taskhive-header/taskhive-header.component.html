@@ -1,0 +1,14 @@
+<div id="taskhive_header">
+  <table>
+    <tr>
+      <td *ngIf="userProfile">{{ userProfile.email }}</td>
+      <td>
+        <!-- <button (click)="logOut()">Logout</button> -->
+        <button (click)="logOut()" mat-raised-button class="taskhive_header_button"
+        type="submit"
+        color="primary"
+        style="color:rgb(255, 255, 255); background-color: rgb(107, 8, 8);">logout</button>
+      </td>
+    </tr>
+  </table>
+</div>

@@ -1,18 +1,5 @@
 <div style="height: 100%;">
-  <div id="taskhive_header">
-    <table>
-      <tr>
-        <td *ngIf="userProfile">{{ userProfile.email }}</td>
-        <td>
-          <!-- <button (click)="logOut()">Logout</button> -->
-          <button (click)="logOut()" mat-raised-button class="taskhive_header_button"
-          type="submit"
-          color="primary"
-          style="color:rgb(255, 255, 255); background-color: rgb(107, 8, 8);">logout</button>
-        </td>
-      </tr>
-    </table>
-  </div>
+  <app-taskhive-header></app-taskhive-header>
   <div id="main_container" style="height: 100%;">
     <div class="mat-elevation-z8 projListContainer" style="height: 100%; overflow-y: auto;">
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 projListTable" style="height: 70%;">
