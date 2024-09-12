@@ -2,6 +2,10 @@
   background-color: rgb(244, 233, 233)
  }
 
+ .taskhive_menu{
+  color: #771515;
+ }
+
  #taskhive_header > table{
   width: 100%;
  }

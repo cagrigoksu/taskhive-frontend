@@ -1,13 +1,22 @@
 <div id="taskhive_header">
   <table>
     <tr>
-      <td *ngIf="userProfile">{{ userProfile.email }}</td>
-      <td>
-        <!-- <button (click)="logOut()">Logout</button> -->
-        <button (click)="logOut()" mat-raised-button class="taskhive_header_button"
-        type="submit"
-        color="primary"
-        style="color:rgb(255, 255, 255); background-color: rgb(107, 8, 8);">logout</button>
+      <td style="width: 50%;"></td>
+      <td style="width: 50%;">
+        <div style="display: inline-flex;">
+          <table>
+            <tr>
+              <td>
+                <button mat-button [matMenuTriggerFor]="mainMenu"  class="taskhive_header_menu" *ngIf="userProfile">{{userProfile.email}}</button>
+                  <mat-menu #mainMenu="matMenu">
+                    <button mat-menu-item >
+                    <button mat-menu-item (click)="logOut()">logout</button>
+                    </button>
+                  </mat-menu>
+              </td>
+            </tr>
+          </table>
+        </div>
       </td>
     </tr>
   </table>
