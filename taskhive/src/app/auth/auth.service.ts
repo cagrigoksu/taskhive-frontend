@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { tap } from 'rxjs/operators';
+import { DataTransferService } from '../services/data-transfer.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,8 @@ import { tap } from 'rxjs/operators';
 export class AuthService {
   constructor(private httpClient: HttpClient) { }
 
-  //http_Client = inject(HttpClient);
+  dts = inject(DataTransferService);
+
   //baseUrl = 'http://localhost:5257/api/UserAuth';
   baseUrl = 'https://taskhive-backend.azurewebsites.net/api/UserAuth';
 
@@ -19,9 +21,6 @@ export class AuthService {
 
   logIn(data:any)
   {
-    console.log("login data received.");
-    console.log('url: '+`${this.baseUrl}/LogIn`);
-
     return this.httpClient.post(`${this.baseUrl}/LogIn`, data)
       .pipe(tap((result) => {
         if(result !== null){
@@ -44,6 +43,8 @@ export class AuthService {
   logOut()
   {
     localStorage.removeItem('authUser');
+    localStorage.removeItem('userProfile');
+    this.dts.setData(null);
   }
 
   isLoggedIn()

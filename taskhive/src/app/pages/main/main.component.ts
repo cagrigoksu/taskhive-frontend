@@ -11,6 +11,7 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ViewChild } from '@angular/core';
 import { TaskhiveHeaderComponent } from '../../parts/taskhive-header/taskhive-header.component';
+import { ProjectModel } from '../../models/ProjectModel';
 
 @Component({
   selector: 'app-main',
@@ -27,8 +28,8 @@ export class MainComponent {
   dataTransferService = inject(DataTransferService);
   projectService = inject(ProjectService);
   router = inject(Router);
-  cdr = inject(ChangeDetectorRef);
-  columnsToDisplay = ['id', 'project_name', 'department', 'team', 'manager', 'number_of_members'];
+
+  columnsToDisplay = ['id', 'projectName', 'department', 'team', 'manager', 'numberOfMembers'];
 
   projList!: any;
   userProfile!: any;
@@ -42,18 +43,11 @@ export class MainComponent {
 
     this.projectService.getAllProjects().subscribe((data:any) =>{
       this.projList = data;
-      this.dataSource = new MatTableDataSource<MyClass>(this.projList);
+      this.dataSource = new MatTableDataSource<ProjectModel>(this.projList);
       this.dataSource.paginator = this.paginator;
     });
   }
 
 }
-export interface MyClass {
-  id: number;
-  project_name: string;
-  department: string;
-  team: string;
-  manager: string;
-  number_of_members: number;
-}
+
 

@@ -12,11 +12,11 @@ export class ProjectService {
 
   }
 
-  //baseUrl = 'https://localhost:7054/api/UserAuth';
-  baseUrl = 'https://dummyjson.com/c/6a61-e480-4a75-b554';
+  baseUrl = 'https://taskhive-backend.azurewebsites.net/api/Project';
+//baseUrl = 'https://localhost:7134/api/Project';
 
-  getAllProjects():Observable<any>
+getAllProjects():Observable<any>
   {
-      return this.httpClient.get(`${this.baseUrl}`);
+    return this.httpClient.get(`${this.baseUrl}/GetProjectListAsync`);
   }
 }

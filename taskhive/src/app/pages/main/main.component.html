@@ -9,9 +9,9 @@
                 <td mat-cell class="rowCell" *matCellDef="let data"> {{data.id}} </td>
             </ng-container>
 
-            <ng-container matColumnDef="project_name">
+            <ng-container matColumnDef="projectName">
                 <th mat-header-cell *matHeaderCellDef> Project Name </th>
-                <td mat-cell class="rowCell" *matCellDef="let data"> {{data.project_name}} </td>
+                <td mat-cell class="rowCell" *matCellDef="let data"> {{data.projectName}} </td>
             </ng-container>
 
             <ng-container matColumnDef="department">
@@ -29,9 +29,9 @@
                 <td mat-cell class="rowCell" *matCellDef="let data"> {{data.manager}} </td>
             </ng-container>
 
-            <ng-container matColumnDef="number_of_members">
+            <ng-container matColumnDef="numberOfMembers">
                 <th mat-header-cell *matHeaderCellDef> Number of Members </th>
-                <td mat-cell class="rowCell" *matCellDef="let data"> {{data.number_of_members}} </td>
+                <td mat-cell class="rowCell" *matCellDef="let data"> {{data.numberOfMembers}} </td>
             </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
