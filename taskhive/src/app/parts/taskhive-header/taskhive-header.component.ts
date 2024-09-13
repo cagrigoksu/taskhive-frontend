@@ -5,11 +5,12 @@ import { Router } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-taskhive-header',
   standalone: true,
-  imports: [NgIf, MatButtonModule, MatMenuModule],
+  imports: [NgIf, MatButtonModule, MatMenuModule, MatIcon],
   templateUrl: './taskhive-header.component.html',
   styleUrl: './taskhive-header.component.css'
 })

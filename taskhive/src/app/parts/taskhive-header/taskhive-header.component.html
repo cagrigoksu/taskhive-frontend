@@ -7,11 +7,15 @@
           <table>
             <tr>
               <td>
-                <button mat-button [matMenuTriggerFor]="mainMenu"  id="taskhive_header_menu" *ngIf="userProfile">{{userProfile.email}}</button>
+                <button mat-icon-button [matMenuTriggerFor]="mainMenu" >
+                  <mat-icon style="color: #6B0808;">more_vert</mat-icon>
+                </button>
                   <mat-menu #mainMenu="matMenu">
-                    <button mat-menu-item >
-                    <button mat-menu-item (click)="logOut()">logout</button>
-                    </button>
+                    <button mat-menu-item [matMenuTriggerFor]="accountMenu" *ngIf="userProfile">{{userProfile.email}}</button>
+                    <button mat-menu-item (click)="logOut()" style="color:#00e0ff;">logout</button>
+                  </mat-menu>
+                  <mat-menu #accountMenu="matMenu">
+                    <button mat-menu-item>Profile</button>
                   </mat-menu>
               </td>
             </tr>
