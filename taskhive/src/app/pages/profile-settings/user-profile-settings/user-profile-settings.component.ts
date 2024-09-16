@@ -1,22 +1,20 @@
-import { UserService } from './../../services/user.service';
-import { Component, inject } from '@angular/core';
-import { TaskhiveHeaderComponent } from "../../parts/taskhive-header/taskhive-header.component";
-import { MatButton } from '@angular/material/button';
-import { MatFormField, MatLabel } from '@angular/material/form-field';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MatInput } from '@angular/material/input';
-import { DataTransferService } from '../../services/data-transfer.service';
 import { NgIf } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { MatButton } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatFormField, MatInput, MatLabel } from '@angular/material/input';
+import { DataTransferService } from '../../../services/data-transfer.service';
+import { UserService } from '../../../services/user.service';
 
 @Component({
-  selector: 'app-user-profile',
+  selector: 'app-user-profile-settings',
   standalone: true,
-  imports: [TaskhiveHeaderComponent, ReactiveFormsModule, MatCardModule, MatInput,MatFormField, MatButton, MatLabel, NgIf],
-  templateUrl: './user-profile.component.html',
-  styleUrl: './user-profile.component.css'
+  imports: [ReactiveFormsModule, MatCardModule, MatInput,MatFormField, MatButton, MatLabel, NgIf],
+  templateUrl: './user-profile-settings.component.html',
+  styleUrl: './user-profile-settings.component.css'
 })
-export class UserProfileComponent {
+export class UserProfileSettingsComponent {
 
   dts = inject(DataTransferService);
   UserService = inject(UserService);
@@ -47,7 +45,7 @@ export class UserProfileComponent {
           department: this.userProfile.department,
           role: this.userProfile.role
         });
-  });
+      });
   }
 
   addOrEditUserProfile()

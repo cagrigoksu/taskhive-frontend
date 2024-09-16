@@ -35,7 +35,7 @@ export class TaskhiveHeaderComponent {
 
   openUserProfile()
   {
-    this.router.navigate(['/userProfile']);
+    this.router.navigate(['/profileSettings']);
   }
 
 }
