@@ -1,3 +1,4 @@
+import { Globals } from './../../utils/globals';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject } from '@angular/core';
@@ -12,8 +13,7 @@ export class AuthService {
 
   dts = inject(DataTransferService);
 
-  //baseUrl = 'http://localhost:5257/api/UserAuth';
-  baseUrl = 'https://taskhive-backend.azurewebsites.net/api/UserAuth';
+  baseUrl = Globals.baseUrl + '/api/UserAuth';
 
   //7134: taskhive
   //7062: apigateway

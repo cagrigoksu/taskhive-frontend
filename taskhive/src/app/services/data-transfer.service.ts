@@ -6,28 +6,32 @@ import { BehaviorSubject, Observable, Subject, map } from 'rxjs';
 })
 export class DataTransferService {
 
-  constructor() {
+  constructor()
+  {
     const storedData = this.loadDataFromLocalStorage();
+
     if (storedData) {
-      this.data.next(storedData);
-    }}
+      this.userData.next(storedData);
+    }
+  }
 
-  private data = new BehaviorSubject<any>(this.loadDataFromLocalStorage());
+  private userData = new BehaviorSubject<any>(this.loadDataFromLocalStorage());
 
-  data$: Observable<any> = this.data.asObservable();
+  userData$: Observable<any> = this.userData.asObservable();
 
-  setData(data: any): void {
-    this.data.next(data);
+  setData(data: any): void
+  {
+    this.userData.next(data);
     this.saveDataToLocalStorage(data);
   }
 
 
   private loadDataFromLocalStorage(): any {
-    const data = localStorage.getItem('userProfile');
-    return data ? JSON.parse(data) : null;
+    const userData = localStorage.getItem('userData');
+    return userData ? JSON.parse(userData) : null;
   }
 
   private saveDataToLocalStorage(data: any): void {
-    localStorage.setItem('userProfile', JSON.stringify(data));
+    localStorage.setItem('userData', JSON.stringify(data));
   }
 }

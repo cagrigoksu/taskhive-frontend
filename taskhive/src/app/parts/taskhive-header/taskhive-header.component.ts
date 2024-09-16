@@ -23,7 +23,7 @@ export class TaskhiveHeaderComponent {
   userProfile!: any;
 
   ngOnInit(){
-    this.dts.data$.subscribe((data:any) => {
+    this.dts.userData$.subscribe((data:any) => {
       this.userProfile = data;
     });
   }
@@ -31,6 +31,11 @@ export class TaskhiveHeaderComponent {
   public logOut(){
     this.authService.logOut();
     this.router.navigate(['/login']);
+  }
+
+  openUserProfile()
+  {
+    this.router.navigate(['/userProfile']);
   }
 
 }

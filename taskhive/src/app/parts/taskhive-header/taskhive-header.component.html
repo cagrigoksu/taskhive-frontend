@@ -12,10 +12,12 @@
                 </button>
                   <mat-menu #mainMenu="matMenu">
                     <button mat-menu-item [matMenuTriggerFor]="accountMenu" *ngIf="userProfile">{{userProfile.email}}</button>
-                    <button mat-menu-item (click)="logOut()" style="color:#00e0ff;">logout</button>
+                    <button mat-menu-item style="text-align: center;">
+                      <button (click)="logOut()" mat-raised-button class="form-submit-button" style="color:rgb(255, 255, 255); background-color: rgb(107, 8, 8);" type="submit" color="primary">logout</button>
+                    </button>
                   </mat-menu>
                   <mat-menu #accountMenu="matMenu">
-                    <button mat-menu-item>Profile</button>
+                    <button mat-menu-item (click)="openUserProfile()">Profile</button>
                   </mat-menu>
               </td>
             </tr>
