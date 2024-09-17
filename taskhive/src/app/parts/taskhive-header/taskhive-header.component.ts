@@ -33,9 +33,12 @@ export class TaskhiveHeaderComponent {
     this.router.navigate(['/login']);
   }
 
-  openUserProfile()
-  {
+  openProfileSettings(){
     this.router.navigate(['/profileSettings']);
+  }
+
+  redirectToMain(){
+    this.router.navigate(['/']);
   }
 
 }

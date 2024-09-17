@@ -19,19 +19,19 @@ export class DataTransferService {
 
   userData$: Observable<any> = this.userData.asObservable();
 
-  setData(data: any): void
-  {
-    this.userData.next(data);
-    this.saveDataToLocalStorage(data);
-  }
+  // setData(data: any): void
+  // {
+  //   this.userData.next(data);
+  //   this.saveDataToLocalStorage(data);
+  // }
 
 
   private loadDataFromLocalStorage(): any {
-    const userData = localStorage.getItem('userData');
+    const userData = localStorage.getItem('authUser');
     return userData ? JSON.parse(userData) : null;
   }
 
-  private saveDataToLocalStorage(data: any): void {
-    localStorage.setItem('userData', JSON.stringify(data));
-  }
+  // private saveDataToLocalStorage(data: any): void {
+  //   localStorage.setItem('userData', JSON.stringify(data));
+  // }
 }

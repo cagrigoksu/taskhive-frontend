@@ -6,6 +6,7 @@ import { MatButtonModule} from '@angular/material/button';
 import { MatFormField, MatInputModule } from '@angular/material/input';
 import { MatLabel } from '@angular/material/input';
 import { MatCheckbox } from '@angular/material/checkbox';
+import { DataTransferService } from '../../services/data-transfer.service';
 
 @Component({
   selector: 'app-logon',
@@ -17,6 +18,7 @@ import { MatCheckbox } from '@angular/material/checkbox';
 })
 export class LogonComponent {
   authService = inject(AuthService);
+  dataTransferService = inject(DataTransferService);
   router = inject(Router);
 
   protected logonForm = new FormGroup({
@@ -25,18 +27,16 @@ export class LogonComponent {
     passwordConfirmation: new FormControl('', [Validators.required])
   })
 
-  public onSubmit() {
+  public logon() {
 
     if (this.logonForm.valid) {
-
-      console.log(this.logonForm.value);
 
       this.authService.logOn(this.logonForm.value)
       .subscribe((data:any) => {
         if (this.authService.isLoggedIn()){
+          // this.dataTransferService.setData(data);
           this.router.navigate(['']);
         }
-        console.log('mydata: '+ JSON.stringify(data));
       });
     }
   }

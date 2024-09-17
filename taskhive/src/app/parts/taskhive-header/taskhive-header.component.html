@@ -3,7 +3,7 @@
     <tr>
       <td style="width: 33.3%;"></td>
       <td style="width: 33.3%; text-align: center;">
-        <p><strong>TaskHive</strong></p>
+        <p (click)="redirectToMain()" style="color: #6B0808;"><strong>TaskHive</strong></p>
       </td>
       <td style="width: 33.3%;">
         <div style="display: inline-flex;">
@@ -14,13 +14,10 @@
                   <mat-icon style="color: #6B0808;">more_vert</mat-icon>
                 </button>
                   <mat-menu #mainMenu="matMenu">
-                    <button mat-menu-item [matMenuTriggerFor]="accountMenu" *ngIf="userProfile">{{userProfile.email}}</button>
+                    <button mat-menu-item (click)="openProfileSettings()">account settings</button>
                     <button mat-menu-item style="text-align: center;">
                       <button (click)="logOut()" mat-raised-button class="form-submit-button" style="color:rgb(255, 255, 255); background-color: rgb(107, 8, 8);" type="submit" color="primary">logout</button>
                     </button>
-                  </mat-menu>
-                  <mat-menu #accountMenu="matMenu">
-                    <button mat-menu-item (click)="openUserProfile()">Profile Settings</button>
                   </mat-menu>
               </td>
             </tr>

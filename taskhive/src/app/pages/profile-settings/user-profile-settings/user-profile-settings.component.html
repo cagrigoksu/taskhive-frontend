@@ -5,8 +5,10 @@
   </div>
 
   <div id="userProfileSettings-page" class="user-profile-container" *ngIf="userProfile">
+
     <form class="user-profile-form" [formGroup]="userProfileForm" (ngSubmit)="addOrEditUserProfile()">
       <div class="form-field-container">
+
         <mat-form-field class="full-width">
           <mat-label class="mat-label">Name</mat-label>
           <input matInput formControlName="name">
@@ -16,12 +18,6 @@
         <mat-form-field class="full-width">
           <mat-label class="mat-label">Surname</mat-label>
           <input matInput formControlName="surname">
-        </mat-form-field>
-      </div>
-      <div class="form-field-container">
-        <mat-form-field class="full-width">
-          <mat-label class="mat-label">Email</mat-label>
-          <input matInput type="email" formControlName="email">
         </mat-form-field>
       </div>
       <div class="form-field-container">

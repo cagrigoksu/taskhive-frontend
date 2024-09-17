@@ -15,6 +15,6 @@ baseUrl = Globals.baseUrl + '/api/Project';
 
 getAllProjects():Observable<any>
   {
-    return this.httpClient.get(`${this.baseUrl}/GetProjectListAsync`);
+    return this.httpClient.get(`${this.baseUrl}/GetProjectList`);
   }
 }
