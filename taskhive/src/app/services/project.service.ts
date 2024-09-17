@@ -1,3 +1,4 @@
+import { Globals } from './../../utils/globals';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
@@ -8,15 +9,12 @@ import { Observable } from 'rxjs';
 })
 export class ProjectService {
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient) {  }
 
-  }
-
-  baseUrl = 'https://taskhive-backend.azurewebsites.net/api/Project';
-//baseUrl = 'https://localhost:7134/api/Project';
+baseUrl = Globals.baseUrl + '/api/Project';
 
 getAllProjects():Observable<any>
   {
-    return this.httpClient.get(`${this.baseUrl}/GetProjectListAsync`);
+    return this.httpClient.get(`${this.baseUrl}/GetProjectList`);
   }
 }

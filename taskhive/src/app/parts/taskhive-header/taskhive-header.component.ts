@@ -5,11 +5,12 @@ import { Router } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-taskhive-header',
   standalone: true,
-  imports: [NgIf, MatButtonModule, MatMenuModule],
+  imports: [NgIf, MatButtonModule, MatMenuModule, MatIcon],
   templateUrl: './taskhive-header.component.html',
   styleUrl: './taskhive-header.component.css'
 })
@@ -22,7 +23,7 @@ export class TaskhiveHeaderComponent {
   userProfile!: any;
 
   ngOnInit(){
-    this.dts.data$.subscribe((data:any) => {
+    this.dts.userData$.subscribe((data:any) => {
       this.userProfile = data;
     });
   }
@@ -30,6 +31,14 @@ export class TaskhiveHeaderComponent {
   public logOut(){
     this.authService.logOut();
     this.router.navigate(['/login']);
+  }
+
+  openProfileSettings(){
+    this.router.navigate(['/profileSettings']);
+  }
+
+  redirectToMain(){
+    this.router.navigate(['/']);
   }
 
 }

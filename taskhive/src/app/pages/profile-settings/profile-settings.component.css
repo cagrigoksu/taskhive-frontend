@@ -1,0 +1,22 @@
+.profileSettings-container {
+  height: 100vh;
+  display: flex;
+}
+
+.profileSettings-left-container {
+  display: flex;
+  flex-direction: column;
+  width: 10%;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(107, 8, 8);
+}
+
+.profileSettings-left-container span{
+  margin: 10% 0 0 10%;
+}
+
+.profileSettings-main-container {
+  width: 90%;
+}
+
+

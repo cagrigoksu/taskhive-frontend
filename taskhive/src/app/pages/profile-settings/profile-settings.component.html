@@ -1,0 +1,12 @@
+<div class="container">
+  <app-taskhive-header></app-taskhive-header>
+  <div class="profileSettings-container">
+    <div class="profileSettings-left-container">
+      <span [routerLink]="['userProfileSettings']">User Profile</span>
+      <span [routerLink]="['securitySettings']">Security</span>
+    </div>
+    <div class="profileSettings-main-container">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

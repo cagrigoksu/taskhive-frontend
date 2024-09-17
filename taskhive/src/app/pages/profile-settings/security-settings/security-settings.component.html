@@ -1,0 +1,34 @@
+<div class="container">
+
+  <div id="security-settings-header">
+    <p class="pageTitle">Security</p>
+  </div>
+
+  <div id="security-settings-page" class="security-settings-container">
+
+    <form class="security-settings-form" [formGroup]="userPasswordChangeForm" (ngSubmit)="changePassword()">
+      <div class="form-field-container">
+
+        <mat-form-field class="full-width">
+          <mat-label class="mat-label">Current Password</mat-label>
+          <input matInput type="password" formControlName="currentPassword" >
+        </mat-form-field>
+      </div>
+      <div class="form-field-container">
+        <mat-form-field class="full-width">
+          <mat-label class="mat-label">New Password</mat-label>
+          <input matInput type="password" formControlName="newPassword">
+        </mat-form-field>
+      </div>
+      <div class="form-field-container">
+        <mat-form-field class="full-width">
+          <mat-label class="mat-label">Confirm Password</mat-label>
+          <input matInput type="password" formControlName="newPasswordConfirmation">
+        </mat-form-field>
+      </div>
+      <div id="button-container">
+        <button mat-raised-button class="form-submit-button" color="primary" type="submit">Apply</button>
+      </div>
+    </form>
+  </div>
+</div>

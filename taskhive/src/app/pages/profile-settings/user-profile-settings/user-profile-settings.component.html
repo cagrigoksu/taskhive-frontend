@@ -1,0 +1,46 @@
+<div class="container">
+
+  <div id="userProfileSettings-header">
+    <p class="pageTitle">User Profile</p>
+  </div>
+
+  <div id="userProfileSettings-page" class="user-profile-container" *ngIf="userProfile">
+
+    <form class="user-profile-form" [formGroup]="userProfileForm" (ngSubmit)="addOrEditUserProfile()">
+      <div class="form-field-container">
+
+        <mat-form-field class="full-width">
+          <mat-label class="mat-label">Name</mat-label>
+          <input matInput formControlName="name">
+        </mat-form-field>
+      </div>
+      <div class="form-field-container">
+        <mat-form-field class="full-width">
+          <mat-label class="mat-label">Surname</mat-label>
+          <input matInput formControlName="surname">
+        </mat-form-field>
+      </div>
+      <div class="form-field-container">
+        <mat-form-field class="full-width">
+          <mat-label class="mat-label">Phone</mat-label>
+          <input matInput type="tel" formControlName="phoneNumber">
+        </mat-form-field>
+      </div>
+      <div class="form-field-container">
+        <mat-form-field class="full-width">
+          <mat-label class="mat-label">Department</mat-label>
+          <input matInput formControlName="department">
+        </mat-form-field>
+      </div>
+      <div class="form-field-container">
+        <mat-form-field class="full-width">
+          <mat-label class="mat-label">Role</mat-label>
+          <input matInput formControlName="role">
+        </mat-form-field>
+      </div>
+      <div id="button-container">
+        <button mat-raised-button class="form-submit-button" color="primary" type="submit">Apply</button>
+      </div>
+    </form>
+  </div>
+</div>
