@@ -2,8 +2,12 @@
   <app-taskhive-header></app-taskhive-header>
   <div class="profileSettings-container">
     <div class="profileSettings-left-container">
-      <span [routerLink]="['userProfileSettings']">User Profile</span>
-      <span [routerLink]="['securitySettings']">Security</span>
+      <button mat-menu-item [routerLink]="['userProfileSettings']">
+        <mat-icon>badge</mat-icon>Profile
+      </button>
+      <button mat-menu-item [routerLink]="['securitySettings']">
+        <mat-icon>key</mat-icon>Password
+      </button>
     </div>
     <div class="profileSettings-main-container">
       <router-outlet></router-outlet>

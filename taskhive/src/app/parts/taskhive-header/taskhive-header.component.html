@@ -1,27 +1,32 @@
 <div id="taskhive_header">
   <table>
     <tr>
-      <td style="width: 33.3%;"></td>
+      <td style="width: 33.3%; text-align: left;">
+        <div style="display: inline-flex;">
+          <button mat-fab extended style="background-color: #393E46;" (click)="openProjects()">
+            <mat-icon style="color: #EEEEEE;">dataset</mat-icon>
+            <span style="color: #EEEEEE;">Projects</span>
+          </button>
+        </div>
+      </td>
       <td style="width: 33.3%; text-align: center;">
-        <p (click)="redirectToMain()" style="color: #6B0808;"><strong>TaskHive</strong></p>
+        <h4 (click)="redirectToMain()" style="color: #393E46;">TaskHive</h4>
       </td>
       <td style="width: 33.3%;">
         <div style="display: inline-flex;">
-          <table>
-            <tr>
-              <td>
-                <button mat-icon-button [matMenuTriggerFor]="mainMenu" >
-                  <mat-icon style="color: #6B0808;">more_vert</mat-icon>
+                <button mat-fab [matMenuTriggerFor]="mainMenu" style="background-color: #393E46;">
+                  <mat-icon style="color: #EEEEEE;">more_vert</mat-icon>
                 </button>
                   <mat-menu #mainMenu="matMenu">
-                    <button mat-menu-item (click)="openProfileSettings()">account settings</button>
-                    <button mat-menu-item style="text-align: center;">
-                      <button (click)="logOut()" mat-raised-button class="form-submit-button" style="color:rgb(255, 255, 255); background-color: rgb(107, 8, 8);" type="submit" color="primary">logout</button>
+                    <button mat-menu-item (click)="openProfileSettings()">
+                      <mat-icon style="color: #EEEEEE;">manage_accounts</mat-icon>
+                      account settings</button>
+                    <button mat-menu-item (click)="logOut()">
+                      <mat-icon>logout</mat-icon>
+                      <span style="color:#00ADB5;">logout</span>
+                      <!-- <button (click)="logOut()" mat-raised-button class="form-submit-button" style="color:rgb(255, 255, 255); background-color: #393E46" type="submit" color="primary">logout</button> -->
                     </button>
                   </mat-menu>
-              </td>
-            </tr>
-          </table>
         </div>
       </td>
     </tr>

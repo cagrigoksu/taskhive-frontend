@@ -34,7 +34,11 @@ export class TaskhiveHeaderComponent {
   }
 
   openProfileSettings(){
-    this.router.navigate(['/profileSettings']);
+    this.router.navigate(['/profileSettings/userProfileSettings']);
+  }
+
+  openProjects(){
+    this.router.navigate(['/projects'])
   }
 
   redirectToMain(){

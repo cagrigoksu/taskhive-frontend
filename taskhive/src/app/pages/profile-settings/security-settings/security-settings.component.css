@@ -5,11 +5,11 @@
 }
 
 #security-settings-header{
-  background-color: rgb(0, 31, 63);
+  background-color: #00ADB5
 }
 
 #security-settings-header p {
-  color: white;
+  color: #393E46;
   margin: 1% 0 1% 1%;
 }
 
@@ -35,5 +35,5 @@
 .form-submit-button
 {
     color: #ffffff;
-    background-color: rgb(0, 31, 63);
+    background-color: #00ADB5
 }
