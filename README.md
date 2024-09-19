@@ -1,5 +1,5 @@
 # TaskHive
-[taskhive.azurewebsites.net](https:/taskhive.azurewebsites.net)
+[taskhive.azurewebsites.net](https://taskhive.azurewebsites.net)
 
 # 💻 Tech Stack:
  ![Angular](https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white) 
