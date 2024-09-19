@@ -5,11 +5,11 @@
 }
 
 #userProfileSettings-header{
-  background-color: rgb(0, 31, 63);
+  background-color: #00ADB5;
 }
 
 #userProfileSettings-header p {
-  color: white;
+  color: #393E46;
   margin: 1% 0 1% 1%;
 }
 
@@ -21,7 +21,7 @@
 
 .user-profile-form {
   width: 100%;
-  max-width: 600px; /* Adjust max-width as needed */
+  max-width: 600px;
 }
 
 .full-width {
@@ -32,8 +32,3 @@
   text-align: end;
 }
 
-.form-submit-button
-{
-    color: #ffffff;
-    background-color: rgb(0, 31, 63);
-}

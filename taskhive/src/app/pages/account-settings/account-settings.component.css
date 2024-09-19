@@ -7,8 +7,8 @@
   display: flex;
   flex-direction: column;
   width: 10%;
-  background-color: rgb(255, 255, 255);
-  border: 2px solid rgb(107, 8, 8);
+  background-color: #393E46;
+  color: #EEEEEE;
 }
 
 .profileSettings-left-container span{

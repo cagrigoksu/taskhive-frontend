@@ -12,11 +12,12 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ViewChild } from '@angular/core';
 import { TaskhiveHeaderComponent } from '../../parts/taskhive-header/taskhive-header.component';
 import { ProjectModel } from '../../models/ProjectModel';
+import { TaskhiveFooterComponent } from '../../parts/taskhive-footer/taskhive-footer.component';
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [NgIf, NgFor, MatTableModule, MatPaginatorModule, MatButtonModule, TaskhiveHeaderComponent],
+  imports: [NgIf, NgFor, MatTableModule, MatPaginatorModule, MatButtonModule, TaskhiveHeaderComponent, TaskhiveFooterComponent],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css',
 })

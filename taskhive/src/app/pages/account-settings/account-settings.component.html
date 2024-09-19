@@ -1,0 +1,16 @@
+<div class="container">
+  <app-taskhive-header></app-taskhive-header>
+  <div class="profileSettings-container">
+    <div class="profileSettings-left-container">
+      <button mat-menu-item [routerLink]="['edit-profile']">
+        <mat-icon>badge</mat-icon><span class="afacad">Profile</span>
+      </button>
+      <button mat-menu-item [routerLink]="['edit-password']">
+        <mat-icon>key</mat-icon><span class="afacad">Password</span>
+      </button>
+    </div>
+    <div class="profileSettings-main-container">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

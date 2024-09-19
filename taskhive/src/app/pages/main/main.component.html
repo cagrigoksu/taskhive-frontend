@@ -1,36 +1,36 @@
 <div style="height: 100%;">
   <app-taskhive-header></app-taskhive-header>
-  <div id="main_container" style="height: 100%;">
+  <div id="main_container" style="height: 88%;">
     <div class="mat-elevation-z8 projListContainer" style="height: 100%; overflow-y: auto;">
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 projListTable" style="height: 70%;">
 
             <ng-container matColumnDef="id">
-                <th mat-header-cell *matHeaderCellDef> ID </th>
+                <th mat-header-cell *matHeaderCellDef class="afacad" class="afacad"> ID </th>
                 <td mat-cell class="rowCell" *matCellDef="let data"> {{data.id}} </td>
             </ng-container>
 
             <ng-container matColumnDef="projectName">
-                <th mat-header-cell *matHeaderCellDef> Project Name </th>
+                <th mat-header-cell *matHeaderCellDef class="afacad"> Project Name </th>
                 <td mat-cell class="rowCell" *matCellDef="let data"> {{data.projectName}} </td>
             </ng-container>
 
             <ng-container matColumnDef="department">
-                <th mat-header-cell *matHeaderCellDef> Department </th>
+                <th mat-header-cell *matHeaderCellDef class="afacad"> Department </th>
                 <td mat-cell class="rowCell" *matCellDef="let data"> {{data.department}} </td>
             </ng-container>
 
             <ng-container matColumnDef="team">
-                <th mat-header-cell *matHeaderCellDef> Team </th>
+                <th mat-header-cell *matHeaderCellDef class="afacad"> Team </th>
                 <td mat-cell class="rowCell" *matCellDef="let data"> {{data.team}} </td>
             </ng-container>
 
             <ng-container matColumnDef="manager">
-                <th mat-header-cell *matHeaderCellDef> Manager </th>
+                <th mat-header-cell *matHeaderCellDef class="afacad"> Manager </th>
                 <td mat-cell class="rowCell" *matCellDef="let data"> {{data.manager}} </td>
             </ng-container>
 
             <ng-container matColumnDef="numberOfMembers">
-                <th mat-header-cell *matHeaderCellDef> Number of Members </th>
+                <th mat-header-cell *matHeaderCellDef class="afacad"> Number of Members </th>
                 <td mat-cell class="rowCell" *matCellDef="let data"> {{data.numberOfMembers}} </td>
             </ng-container>
 
@@ -42,4 +42,5 @@
     <div>
   </div>
   </div>
+  <app-taskhive-footer></app-taskhive-footer>
 </div>

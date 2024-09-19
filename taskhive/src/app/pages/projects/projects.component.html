@@ -1,0 +1,22 @@
+<div class="container">
+  <app-taskhive-header></app-taskhive-header>
+  <div class="profileSettings-container">
+    <div class="profileSettings-left-container">
+      <button mat-menu-item [routerLink]="['my-projects']">
+        <mat-icon>diversity_3</mat-icon>
+         <span class="afacad menu-element">My Projects</span>
+      </button>
+      <button mat-menu-item [routerLink]="['add-project']">
+        <mat-icon>list_alt_add</mat-icon>
+         <span class="afacad menu-element">New Project</span>
+      </button>
+      <button mat-menu-item [routerLink]="['edit-project']">
+        <mat-icon>edit</mat-icon>
+          <span class="afacad menu-element">Edit Project</span>
+      </button>
+    </div>
+    <div class="profileSettings-main-container">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

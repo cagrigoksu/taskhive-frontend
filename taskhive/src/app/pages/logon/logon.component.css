@@ -36,6 +36,7 @@
 
 .auth_header
 {
-  color: rgb(0, 31, 63);
-  font-size: 250%;
+  color: #393E46;
+  font-size: 300%;
+  font-family: "Afacad", sans-serif;
 }

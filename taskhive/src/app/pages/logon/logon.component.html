@@ -1,29 +1,29 @@
 <div class="form-container">
-  <a href="http://localhost:4200/"><img class="taskhive_logo" src="taskhive_logo.png" alt="TaskHive_Logo"></a>
+  <a href="/"><img class="taskhive_logo" src="taskhive_logo.png" alt="TaskHive_Logo"></a>
     <br>
     <h1 class="auth_header"> Log On </h1>
         <form class="form-group" [formGroup]="logonForm" (ngSubmit)="logon()">
 
             <div>
                 <mat-form-field class="example-full-width form-field">
-                    <mat-label>Email</mat-label>
+                    <mat-label class="afacad">Email</mat-label>
                     <input matInput name="email" type="email" formControlName="email" placeholder="e-mail" autocomplete="off">
                 </mat-form-field>
             </div>
             <div>
                 <mat-form-field class="example-full-width form-field">
-                    <mat-label>Password</mat-label>
+                    <mat-label class="afacad">Password</mat-label>
                     <input matInput name="password" type="password" formControlName="password" placeholder="Password" autocomplete="off">
                 </mat-form-field>
             </div>
             <div>
                 <mat-form-field class="example-full-width form-field">
-                    <mat-label>Confirm Password</mat-label>
+                    <mat-label class="afacad">Confirm Password</mat-label>
                     <input matInput name="passwordConfirmation" type="password" formControlName="passwordConfirmation" placeholder="Password Confirmation" autocomplete="off">
                 </mat-form-field>
             </div>
             <br>
-            <button mat-raised-button class="form-submit-button" style="color:rgb(255, 255, 255); background-color: rgb(0, 31, 63);" type="submit" color="primary">Log On</button>
+            <button mat-raised-button class="form-submit-button" style="color:rgb(255, 255, 255); background-color: #00ADB5; font-family: 'Afacad', sans-serif;" type="submit" color="primary">Log On</button>
         </form>
     </div>
 
