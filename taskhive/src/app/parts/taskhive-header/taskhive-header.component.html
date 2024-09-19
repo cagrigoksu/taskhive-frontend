@@ -5,12 +5,13 @@
         <div style="display: inline-flex;">
           <button mat-fab extended style="background-color: #393E46;" (click)="openProjects()">
             <mat-icon style="color: #EEEEEE;">dataset</mat-icon>
-            <span style="color: #EEEEEE;">Projects</span>
+            <span class="afacad" style="color: #EEEEEE;">Projects</span>
           </button>
         </div>
       </td>
       <td style="width: 33.3%; text-align: center;">
-        <h4 (click)="redirectToMain()" style="color: #393E46;">TaskHive</h4>
+        <!-- <h4 (click)="redirectToMain()" style="color: #393E46; font-family: 'Afacad', sans-serif;">TaskHive</h4> -->
+        <a href="/"><img class="taskhive_logo" src="taskhive_logo.png" alt="TaskHive_Logo"></a>
       </td>
       <td style="width: 33.3%;">
         <div style="display: inline-flex;">
@@ -20,10 +21,10 @@
                   <mat-menu #mainMenu="matMenu">
                     <button mat-menu-item (click)="openAccountSettings()">
                       <mat-icon style="color: #EEEEEE;">manage_accounts</mat-icon>
-                      account settings</button>
+                       <span class="afacad">settings</span></button>
                     <button mat-menu-item (click)="logOut()">
                       <mat-icon>logout</mat-icon>
-                      <span style="color:#00ADB5;">logout</span>
+                      <span class="afacad" style="color:#00ADB5;">logout</span>
                       <!-- <button (click)="logOut()" mat-raised-button class="form-submit-button" style="color:rgb(255, 255, 255); background-color: #393E46" type="submit" color="primary">logout</button> -->
                     </button>
                   </mat-menu>
