@@ -1,20 +1,20 @@
 import { NgIf } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
-import { MatFormField, MatInput, MatLabel } from '@angular/material/input';
+import { MatFormField, MatLabel } from '@angular/material/form-field';
+import { MatInput } from '@angular/material/input';
 import { DataTransferService } from '../../../services/data-transfer.service';
 import { UserService } from '../../../services/user.service';
-import { from } from 'rxjs';
 
 @Component({
-  selector: 'app-user-profile-settings',
+  selector: 'app-edit-profile',
   standalone: true,
   imports: [ReactiveFormsModule, MatInput,MatFormField, MatButton, MatLabel, NgIf],
-  templateUrl: './user-profile-settings.component.html',
-  styleUrl: './user-profile-settings.component.css'
+  templateUrl: './edit-profile.component.html',
+  styleUrl: './edit-profile.component.css'
 })
-export class UserProfileSettingsComponent {
+export class EditProfileComponent {
 
   dts = inject(DataTransferService);
   UserService = inject(UserService);
