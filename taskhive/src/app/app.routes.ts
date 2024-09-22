@@ -10,6 +10,7 @@ import { EditProjectComponent } from './pages/projects/edit-project/edit-project
 import { AccountSettingsComponent } from './pages/account-settings/account-settings.component';
 import { EditProfileComponent } from './pages/account-settings/edit-profile/edit-profile.component';
 import { EditPasswordComponent } from './pages/account-settings/edit-password/edit-password.component';
+import { ManageProjectComponent } from './pages/projects/manage-project/manage-project.component';
 
 export const routes: Routes = [
     {path: 'login', component: LoginComponent},
@@ -25,7 +26,8 @@ export const routes: Routes = [
       children: [
         {path: 'my-projects', component: MyProjectsComponent},
         {path: 'create-project', component: CreateProjectComponent},
-        {path: 'edit-project', component: EditProjectComponent}
+        {path: 'edit-project', component: EditProjectComponent},
+        {path: 'manage-project', component: ManageProjectComponent}
       ]
     }
 ];

@@ -9,12 +9,13 @@ import { UserService } from '../../../services/user.service';
 import { MatNativeDateModule, MatOption } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-create-project',
   standalone: true,
   imports: [ReactiveFormsModule, MatInput,MatFormField, MatLabel, NgIf,
-    MatButton, MatOption, MatDatepickerModule, MatSelectModule, MatNativeDateModule],
+    MatButton, MatOption, MatDatepickerModule, MatSelectModule, MatNativeDateModule, MatIcon],
   templateUrl: './create-project.component.html',
   styleUrl: './create-project.component.css'
 })

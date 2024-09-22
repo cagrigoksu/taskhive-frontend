@@ -1,59 +1,78 @@
 <div class="container">
-
   <div id="create-project-header">
     <p class="pageTitle afacad">Create New Project</p>
   </div>
 
   <div id="create-project-page" class="create-project-container">
-
     <form class="create-project-form" [formGroup]="newProjectForm" (ngSubmit)="createNewProject()">
-      <mat-form-field class="full-width">
-          <mat-label class="mat-label">Project Name</mat-label>
-          <input matInput formControlName="projectName" required>
-       </mat-form-field>
 
-        <mat-form-field class="full-width">
+      <div class="row">
+        <div class="description-div">
+          <mat-icon>description</mat-icon>
+          <span class="afacad">Project Description</span>
+          <mat-form-field class="full-width">
+            <mat-label class="mat-label">Project Name</mat-label>
+            <input matInput formControlName="projectName" required>
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
             <mat-label class="mat-label">Description</mat-label>
             <textarea matInput formControlName="description"></textarea>
-        </mat-form-field>
+          </mat-form-field>
+        </div>
 
-        <mat-form-field class="full-width">
+        <div class="duration-div">
+          <mat-icon>hourglass_empty</mat-icon>
+          <span class="afacad">Duration</span>
+          <mat-form-field class="full-width">
             <mat-label class="mat-label">Start Date</mat-label>
             <input matInput [matDatepicker]="startPicker" formControlName="startDate" required>
             <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
             <mat-datepicker #startPicker></mat-datepicker>
-        </mat-form-field>
+          </mat-form-field>
 
-        <mat-form-field class="full-width">
+          <mat-form-field class="full-width">
             <mat-label class="mat-label">End Date</mat-label>
             <input matInput [matDatepicker]="endPicker" formControlName="endDate" required>
             <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
             <mat-datepicker #endPicker></mat-datepicker>
-        </mat-form-field>
+          </mat-form-field>
+        </div>
+      </div>
 
-        <mat-form-field class="full-width">
-          <mat-label class="mat-label">Status</mat-label>
-          <mat-select formControlName="status" required>
+      <div class="row">
+        <div class="condition-div">
+          <mat-icon>notification_important</mat-icon>
+          <span class="afacad">Conditions</span>
+          <mat-form-field class="full-width">
+            <mat-label class="mat-label">Status</mat-label>
+            <mat-select formControlName="status" required>
               <mat-option value="not started">Not Started</mat-option>
               <mat-option value="in progress">In Progress</mat-option>
               <mat-option value="completed">Completed</mat-option>
               <mat-option value="on hold">On Hold</mat-option>
-          </mat-select>
-      </mat-form-field>
+            </mat-select>
+          </mat-form-field>
 
-      <mat-form-field class="full-width">
-          <mat-label class="mat-label">Priority</mat-label>
-          <mat-select formControlName="priority" required>
+          <mat-form-field class="full-width">
+            <mat-label class="mat-label">Priority</mat-label>
+            <mat-select formControlName="priority" required>
               <mat-option value="low">Low</mat-option>
               <mat-option value="medium">Medium</mat-option>
               <mat-option value="high">High</mat-option>
-          </mat-select>
-      </mat-form-field>
+            </mat-select>
+          </mat-form-field>
+        </div>
 
-      <mat-form-field class="full-width">
-          <mat-label class="mat-label">Budget</mat-label>
-          <input matInput type="number" formControlName="budget" required>
-      </mat-form-field>
+        <div class="budget-div">
+          <mat-icon>euro_symbol</mat-icon>
+          <span class="afacad">Budget</span>
+          <mat-form-field class="full-width">
+            <mat-label class="mat-label">Budget</mat-label>
+            <input matInput type="number" formControlName="budget" required>
+          </mat-form-field>
+        </div>
+      </div>
 
       <div id="button-container">
         <button mat-raised-button style="font-family: 'Afacad', sans-serif; color: #ffffff; background-color: #00ADB5;" type="submit">Apply</button>
