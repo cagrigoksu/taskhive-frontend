@@ -21,31 +21,30 @@
   justify-content: flex-start;
   margin: 20px;
   overflow: auto;
-  max-height: 75vh;
+  max-height: 72vh;
   flex-direction: row;
-  padding: 20px 20px 0 20px;
+  padding: 20px;
   background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .list-container {
+  flex: 1;
   max-width: 25vw;
-  margin-right: 0;
+  height: 25vh;
 }
 
 .edit-container {
-  width: 50vw;
+  flex: 2;
   margin-left: 5vw;
 }
 
-
-.projListTable
-{
- background-color: #222831;
+.projListTable {
+  background-color: #222831;
 }
 
-.rowCell{
+.rowCell {
   background-color: white;
   color: black;
 }
@@ -99,26 +98,29 @@
   background-color: #01413f;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .edit-project-container {
-    flex-direction: column; /* Stack elements vertically */
+    flex-direction: column;
   }
 
   .list-container {
-    margin-right: 0; /* Remove margin on smaller screens */
-    max-width: 100%; /* Allow full width */
+    max-width: 100%;
+    height: auto;
   }
 
   .edit-container {
-    margin-left: 0; /* Remove left margin */
-    max-width: 100%; /* Allow full width */
+    margin-left: 0;
+    margin-top: 20px;
+    width: 100%;
   }
 
-  .description-div,
-  .duration-div,
-  .condition-div,
-  .budget-div {
-    margin-right: 0; /* Remove margin on smaller screens */
+  #edit-project-header p {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  #edit-project-header p {
+    font-size: 18px;
   }
 }

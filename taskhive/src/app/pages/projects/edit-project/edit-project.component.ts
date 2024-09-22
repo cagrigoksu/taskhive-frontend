@@ -1,10 +1,10 @@
 import { NgIf } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MatButton } from '@angular/material/button';
+import { MatButton, MatIconButton } from '@angular/material/button';
 import { MatNativeDateModule, MatOption } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatFormField, MatFormFieldModule, MatLabel } from '@angular/material/form-field';
+import { MatFormField, MatFormFieldModule, MatLabel, MatSuffix } from '@angular/material/form-field';
 import { MatIcon } from '@angular/material/icon';
 import { MatInput } from '@angular/material/input';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
@@ -15,7 +15,8 @@ import { MatTable, MatTableDataSource, MatTableModule } from '@angular/material/
   selector: 'app-edit-project',
   standalone: true,
   imports: [ReactiveFormsModule, MatInput,MatFormField, MatLabel, NgIf,
-    MatButton, MatOption, MatDatepickerModule, MatSelectModule, MatNativeDateModule, MatIcon, MatTableModule, MatPaginatorModule],
+    MatButton, MatOption, MatDatepickerModule, MatSelectModule, MatNativeDateModule, MatIcon, MatTableModule, MatPaginatorModule,
+  MatSuffix, MatIconButton],
   templateUrl: './edit-project.component.html',
   styleUrl: './edit-project.component.css'
 })
