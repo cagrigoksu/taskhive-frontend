@@ -1,0 +1,151 @@
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#manage-project-header {
+  background-color: #00ADB5;
+  padding: 20px;
+}
+
+#manage-project-header p {
+  color: #393E46;
+  margin: 0;
+  font-size: 24px;
+}
+
+.manage-project-container {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  margin: 20px;
+  overflow: auto;
+  max-height: 72vh;
+  flex-direction: row;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.list-container {
+  flex: 1;
+  max-width: 25vw;
+  height: 25vh;
+}
+
+.manage-container {
+  flex: 2;
+  margin-left: 5vw;
+}
+
+.manage-div > mat-expansion-panel {
+  background-color: #222831;
+}
+
+.projListTable {
+  background-color: #222831;
+}
+
+.rowCell {
+  background-color: white;
+  color: black;
+}
+
+.column {
+  display: inline;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  align-items: stretch;
+}
+
+.full-width {
+  width: 100%;
+}
+
+#button-container {
+  text-align: end;
+  margin-top: 20px;
+}
+
+.form-submit-button {
+  color: #ffffff;
+  background-color: #00ADB5;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.form-submit-button:hover {
+  background-color: #01413f;
+}
+
+/* Media Queries for Responsiveness */
+
+/* For tablets and smaller screens */
+@media (max-width: 1024px) {
+  .manage-project-container {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .list-container {
+    max-width: 100%;
+    margin-bottom: 20px;
+    height: auto;
+  }
+
+  .manage-container {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  #manage-project-header p {
+    font-size: 20px;
+  }
+}
+
+/* For mobile devices */
+@media (max-width: 768px) {
+  .manage-project-container {
+    padding: 10px;
+  }
+
+  .list-container {
+    max-width: 100%;
+    margin-bottom: 15px;
+    height: auto;
+  }
+
+  .manage-container {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  #button-container {
+    text-align: center;
+    margin-top: 15px;
+  }
+
+  .form-submit-button {
+    width: 100%;
+    padding: 12px;
+  }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+  #manage-project-header p {
+    font-size: 18px;
+  }
+
+  .manage-project-container {
+    padding: 5px;
+  }
+
+  .form-submit-button {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
