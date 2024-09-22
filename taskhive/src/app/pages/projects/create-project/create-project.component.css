@@ -1,0 +1,41 @@
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#create-project-header{
+  background-color: #00ADB5
+}
+
+#create-project-header p {
+  color: #393E46;
+  margin: 1% 0 1% 1%;
+}
+
+.create-project-container {
+  flex: 1;
+  display: flex;
+  margin: 3% 0 0 3%;
+  overflow: auto;
+  max-height: 75vh;
+}
+
+.create-project-form {
+  width: 100%;
+  max-width: 600px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+#button-container{
+  text-align: end;
+}
+
+.form-submit-button
+{
+    color: #ffffff;
+    background-color: #00ADB5
+}
