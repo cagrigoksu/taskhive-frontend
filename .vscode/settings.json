@@ -18,5 +18,7 @@
         "titleBar.inactiveBackground": "#dd053199",
         "titleBar.inactiveForeground": "#e7e7e799"
     },
-    "peacock.color": "#dd0531"
+    "peacock.color": "#dd0531",
+    "appService.defaultWebAppToDeploy": "/subscriptions/fb47bff9-40f5-4850-b1f9-f4659cb6351b/resourceGroups/Development/providers/Microsoft.Web/sites/taskhive",
+    "appService.deploySubpath": "taskhive\\dist\\taskhive\\browser"
 }

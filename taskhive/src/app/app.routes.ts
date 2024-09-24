@@ -5,11 +5,12 @@ import { LogonComponent } from './pages/logon/logon.component';
 import { MainComponent } from './pages/main/main.component';
 import { authGuard } from './auth/auth.guard';
 import { MyProjectsComponent } from './pages/projects/my-projects/my-projects.component';
-import { AddProjectComponent } from './pages/projects/add-project/add-project.component';
+import { CreateProjectComponent } from './pages/projects/create-project/create-project.component';
 import { EditProjectComponent } from './pages/projects/edit-project/edit-project.component';
 import { AccountSettingsComponent } from './pages/account-settings/account-settings.component';
 import { EditProfileComponent } from './pages/account-settings/edit-profile/edit-profile.component';
 import { EditPasswordComponent } from './pages/account-settings/edit-password/edit-password.component';
+import { ManageProjectComponent } from './pages/projects/manage-project/manage-project.component';
 
 export const routes: Routes = [
     {path: 'login', component: LoginComponent},
@@ -24,8 +25,9 @@ export const routes: Routes = [
     {path: 'projects', component: ProjectsComponent,
       children: [
         {path: 'my-projects', component: MyProjectsComponent},
-        {path: 'add-project', component: AddProjectComponent},
-        {path: 'edit-project', component: EditProjectComponent}
+        {path: 'create-project', component: CreateProjectComponent},
+        {path: 'edit-project', component: EditProjectComponent},
+        {path: 'manage-project', component: ManageProjectComponent}
       ]
     }
 ];

@@ -7,38 +7,58 @@
   <div id="userProfileSettings-page" class="user-profile-container" *ngIf="userProfile">
 
     <form class="user-profile-form" [formGroup]="userProfileForm" (ngSubmit)="addOrEditUserProfile()">
-      <div class="form-field-container">
 
-        <mat-form-field class="full-width">
-          <mat-label class="mat-label">Name</mat-label>
-          <input matInput formControlName="name">
-        </mat-form-field>
-      </div>
       <div class="form-field-container">
         <mat-form-field class="full-width">
-          <mat-label class="mat-label">Surname</mat-label>
-          <input matInput formControlName="surname">
+          <mat-label class="mat-label afacad">Name</mat-label>
+          <input matInput formControlName="name" style="font-family: 'Afacad', sans-serif;">
         </mat-form-field>
       </div>
+
       <div class="form-field-container">
         <mat-form-field class="full-width">
-          <mat-label class="mat-label">Phone</mat-label>
-          <input matInput type="tel" formControlName="phoneNumber">
+          <mat-label class="mat-label afacad">Surname</mat-label>
+          <input matInput formControlName="surname" style="font-family: 'Afacad', sans-serif;">
         </mat-form-field>
       </div>
+
       <div class="form-field-container">
         <mat-form-field class="full-width">
-          <mat-label class="mat-label">Department</mat-label>
-          <input matInput formControlName="department">
+          <mat-label class="mat-label afacad">Phone</mat-label>
+          <input matInput type="tel" formControlName="phoneNumber" style="font-family: 'Afacad', sans-serif;">
         </mat-form-field>
       </div>
+
       <div class="form-field-container">
         <mat-form-field class="full-width">
-          <mat-label class="mat-label">Role</mat-label>
-          <input matInput formControlName="role">
+          <mat-label class="mat-label afacad">Department</mat-label>
+          <mat-select formControlName="departmentId">
+            <mat-option *ngFor="let department of departments" [value]="department.id" style="font-family: 'Afacad', sans-serif;">
+              {{ department.name }}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
       </div>
+
+      <div class="form-field-container">
+        <mat-form-field class="full-width">
+          <mat-label class="mat-label afacad">Role</mat-label>
+          <mat-select formControlName="roleId">
+            <mat-option *ngFor="let role of roles" [value]="role.id" style="font-family: 'Afacad', sans-serif;">
+              {{ role.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
       <div id="button-container">
+        <mat-spinner
+          *ngIf="spinner"
+          mode="indeterminate"
+          diameter="30"
+          style="margin-right: 10px;">
+
+        </mat-spinner>
         <button mat-raised-button type="submit" style="font-family: 'Afacad', sans-serif; color: #ffffff; background-color: #00ADB5;">Apply</button>
       </div>
     </form>

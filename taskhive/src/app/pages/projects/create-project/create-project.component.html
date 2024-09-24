@@ -1,0 +1,84 @@
+<div class="container">
+  <div id="create-project-header">
+    <p class="pageTitle afacad">Create New Project</p>
+  </div>
+
+  <div id="create-project-page" class="create-project-container">
+    <form class="create-project-form" [formGroup]="newProjectForm" (ngSubmit)="createNewProject()">
+
+      <div class="row">
+        <div class="description-div">
+          <mat-icon>description</mat-icon>
+          <span class="afacad">Project Description</span>
+          <mat-form-field class="full-width">
+            <mat-label class="mat-label afacad">Project Name</mat-label>
+            <input matInput formControlName="name" required style="font-family: 'Afacad', sans-serif;">
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <mat-label class="mat-label afacad">Description</mat-label>
+            <textarea matInput formControlName="description" style="font-family: 'Afacad', sans-serif;"></textarea>
+          </mat-form-field>
+        </div>
+
+        <div class="duration-div">
+          <mat-icon>hourglass_empty</mat-icon>
+          <span class="afacad">Duration</span>
+          <mat-form-field class="full-width">
+            <mat-label class="mat-label afacad">Start Date</mat-label>
+            <input matInput [matDatepicker]="startPicker" formControlName="startDate" required style="font-family: 'Afacad', sans-serif;">
+            <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+            <mat-datepicker #startPicker></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <mat-label class="mat-label afacad">End Date</mat-label>
+            <input matInput [matDatepicker]="endPicker" formControlName="endDate" required style="font-family: 'Afacad', sans-serif;">
+            <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+            <mat-datepicker #endPicker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="condition-div">
+          <mat-icon>notification_important</mat-icon>
+          <span class="afacad">Conditions</span>
+          <mat-form-field class="full-width">
+            <mat-label class="mat-label afacad">Status</mat-label>
+            <mat-select formControlName="statusId" required>
+              <mat-option *ngFor="let status of statusData" [value]="status.id" style="font-family: 'Afacad', sans-serif;">{{status.value}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <mat-label class="mat-label afacad">Priority</mat-label>
+            <mat-select formControlName="priorityId" required>
+              <mat-option *ngFor="let priority of priorityData" [value]="priority.id" style="font-family: 'Afacad', sans-serif;">{{priority.value}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="budget-div">
+          <mat-icon>euro_symbol</mat-icon>
+          <span class="afacad">Budget</span>
+          <mat-form-field class="full-width">
+            <mat-label class="mat-label afacad">Budget</mat-label>
+            <input matInput type="number" formControlName="budget" required style="font-family: 'Afacad', sans-serif;">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div id="button-container">
+        <mat-progress-spinner
+            *ngIf="loading"
+            mode="indeterminate"
+            diameter="30"
+            color="primary"
+            style="margin-right: 10px;">
+         </mat-progress-spinner>
+        <button mat-raised-button style="font-family: 'Afacad', sans-serif; color: #ffffff; background-color: #00ADB5;" type="submit">Apply</button>
+      </div>
+    </form>
+  </div>
+</div>

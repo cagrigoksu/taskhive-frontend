@@ -19,10 +19,17 @@
             <div>
                 <mat-form-field class="example-full-width form-field">
                     <mat-label class="afacad">Confirm Password</mat-label>
-                    <input matInput name="passwordConfirmation" type="password" formControlName="passwordConfirmation" placeholder="Password Confirmation" autocomplete="off">
+                    <input matInput name="passwordConfirmation" type="password" formControlName="passwordConf" placeholder="Password Confirmation" autocomplete="off">
                 </mat-form-field>
             </div>
             <br>
+            <div style="min-height: 5vh; display: flex; justify-content: center;">
+              <mat-progress-spinner
+                  *ngIf="spinner"
+                  diameter="30"
+                  mode="indeterminate">
+              </mat-progress-spinner>
+            </div>
             <button mat-raised-button class="form-submit-button" style="color:rgb(255, 255, 255); background-color: #00ADB5; font-family: 'Afacad', sans-serif;" type="submit" color="primary">Log On</button>
         </form>
     </div>

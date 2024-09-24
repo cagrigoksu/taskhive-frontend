@@ -41,4 +41,8 @@ export class TaskhiveHeaderComponent {
     this.router.navigate(['/projects/my-projects'])
   }
 
+  redirectToMain(){
+    this.router.navigate(['/']);
+  }
+
 }

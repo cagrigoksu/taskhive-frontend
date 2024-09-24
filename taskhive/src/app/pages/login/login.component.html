@@ -19,8 +19,17 @@
       </div>
       <div>
         <br>
-          <button mat-raised-button class="form-submit-button" style="color:rgb(255, 255, 255); background-color: #00ADB5; font-family: 'Afacad', sans-serif;" type="submit" color="primary">Log In</button>
-          <button mat-raised-button class="form-submit-button" style="color:rgb(255, 255, 255); background-color: #393E46; font-family: 'Afacad', sans-serif;" (click)="logOn()" color="warn">Log On</button>
+          <div style="display: flex; justify-content: center; min-height: 5vh;">
+            <mat-progress-spinner
+              *ngIf="spinner"
+              diameter="30"
+              mode="indeterminate">
+            </mat-progress-spinner>
+          </div>
+          <div>
+            <button mat-raised-button class="form-submit-button" style="color:rgb(255, 255, 255); background-color: #00ADB5; font-family: 'Afacad', sans-serif;" type="submit" color="primary">Log In</button>
+            <button mat-raised-button class="form-submit-button" style="color:rgb(255, 255, 255); background-color: #393E46; font-family: 'Afacad', sans-serif;" (click)="logOn()" color="warn">Log On</button>
+          </div>
       </div>
   </form>
 </div>

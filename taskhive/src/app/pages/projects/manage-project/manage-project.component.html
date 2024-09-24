@@ -1,0 +1,94 @@
+<div class="container">
+  <div id="manage-project-header">
+    <p class="pageTitle afacad">Manage Project</p>
+  </div>
+
+  <div id="manage-project-page" class="manage-project-container">
+
+    <div class="list-container">
+
+      <mat-form-field class="full-width">
+        <input matInput type="search" style="font-family: 'Afacad', sans-serif;" placeholder="Search by project name..." class="afacad">
+        <button matSuffix mat-icon-button>
+          <mat-icon>search</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 projListTable" style="height: 70%;">
+
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef class="afacad" class="afacad"> ID </th>
+            <td mat-cell class="rowCell afacad" *matCellDef="let data"> {{data.id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="projectName">
+            <th mat-header-cell *matHeaderCellDef class="afacad"> Project Name </th>
+            <td mat-cell class="rowCell afacad" *matCellDef="let data"> {{data.projectName}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+        <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+
+      </table>
+
+      <mat-paginator class="projListTable" [pageSizeOptions]="[5]" showFirstLastButtons></mat-paginator>
+
+    </div>
+
+    <div class="manage-container">
+
+        <div class="column">
+
+          <div class="manage-div">
+            <mat-icon>supervisor_account</mat-icon>
+            <span class="afacad">Add Team Member</span>
+
+            <mat-form-field class="full-width">
+              <input matInput type="text" style="font-family: 'Afacad', sans-serif;" [(ngModel)]="searchText" (input)="filterTeamMembers()" placeholder="Search member by name, surname, department or role...">
+            </mat-form-field>
+
+            <!-- Select Team Member -->
+            <mat-form-field class="full-width">
+              <mat-label class="mat-label afacad">Select team member</mat-label>
+              <mat-select (selectionChange)="addTeamMember($event.value)">
+                <mat-option *ngFor="let member of filteredTeamMembers" [value]="member" style="font-family: 'Afacad', sans-serif;">
+                  {{ member.name }} {{ member.surname }} - {{ member.department }} ({{ member.role }})
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <!-- Expansion Panel to Show Selected Team Members -->
+            <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+              <mat-expansion-panel-header>
+                <mat-panel-title class="afacad"> Team Members </mat-panel-title>
+                <mat-panel-description class="afacad">
+                  click to {{ panelOpenState() ? 'close' : 'open' }}
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+
+              <!-- List Selected Team Members -->
+              <div *ngIf="selectedTeamMembers.length > 0; else noMembers">
+                <ul>
+                  <li *ngFor="let member of selectedTeamMembers" style="display: flex;">
+                    <div style="margin-right: 3vw; color: red; cursor: pointer;"><mat-icon>delete_outline</mat-icon></div>
+                    <div class="afacad">{{ member.name }} {{ member.surname }} - {{ member.department }} ({{ member.role }})</div>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Display a message if no team members are selected -->
+              <ng-template #noMembers>
+                <p class="afacad">No team members selected for this project.</p>
+              </ng-template>
+            </mat-expansion-panel>
+
+          </div>
+
+          <div id="button-container">
+            <button mat-raised-button style="font-family: 'Afacad', sans-serif; color: #ffffff; background-color: #00ADB5;" type="submit">Apply</button>
+          </div>
+
+    </div>
+
+  </div>
+</div>

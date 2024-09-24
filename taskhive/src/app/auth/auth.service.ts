@@ -17,7 +17,7 @@ export class AuthService {
 
   logIn(data:any)
   {
-    return this.httpClient.post(`${this.baseUrl}/LogIn`, data)
+    return this.httpClient.post(`${this.baseUrl}/Login`, data)
       .pipe(tap((result) => {
         if(result !== null){
           localStorage.setItem('authUser', JSON.stringify(result));
@@ -27,7 +27,7 @@ export class AuthService {
 
   logOn(data:any)
   {
-      return this.httpClient.post(`${this.baseUrl}/LogOn`, data)
+      return this.httpClient.post(`${this.baseUrl}/Logon`, data)
       .pipe(tap((result) => {
         if(result !== null){
           localStorage.setItem('authUser', JSON.stringify(result));

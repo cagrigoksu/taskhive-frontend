@@ -1,21 +1,21 @@
-.profileSettings-container {
+.projects-container {
   height: 100vh;
   display: flex;
 }
 
-.profileSettings-left-container {
+.projects-left-container {
   display: flex;
   flex-direction: column;
-  width: 10%;
+  width: 15%;
   background-color: #393E46;
   color: #EEEEEE;
 }
 
-.profileSettings-left-container span{
+.projects-left-container span{
   margin: 10% 0 0 10%;
 }
 
-.profileSettings-main-container {
+.projects-main-container {
   width: 90%;
 }
 
