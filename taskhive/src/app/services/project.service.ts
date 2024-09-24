@@ -21,6 +21,10 @@ export class ProjectService {
     return this.httpClient.post(`${this.baseUrl}/CreateProject`, data);
   }
 
+  editProject(data:any){
+    return this.httpClient.put(`${this.baseUrl}/EditProject`,data);
+  }
+
   getPriority():Observable<any>
   {
     return this.httpClient.get(`${this.baseUrl}/GetPriorityEnum`);
@@ -29,6 +33,11 @@ export class ProjectService {
   getProjects():Observable<any>
   {
     return this.httpClient.get(`${this.baseUrl}/GetProjects`);
+  }
+
+  getProjectById(data:any):Observable<any>
+  {
+    return this.httpClient.get(`${this.baseUrl}/GetProjectById/${data}`);
   }
 
   getStatus():Observable<any>

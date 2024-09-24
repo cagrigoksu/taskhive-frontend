@@ -52,6 +52,13 @@
       </div>
 
       <div id="button-container">
+        <mat-spinner
+          *ngIf="spinner"
+          mode="indeterminate"
+          diameter="30"
+          style="margin-right: 10px;">
+
+        </mat-spinner>
         <button mat-raised-button type="submit" style="font-family: 'Afacad', sans-serif; color: #ffffff; background-color: #00ADB5;">Apply</button>
       </div>
     </form>

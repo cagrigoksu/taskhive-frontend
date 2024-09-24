@@ -8,6 +8,8 @@ import { DataTransferService } from '../../../services/data-transfer.service';
 import { UserService } from '../../../services/user.service';
 import { HelperService } from '../../../services/helper.service';
 import { MatOption, MatSelect, MatSelectModule } from '@angular/material/select';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-edit-profile',
@@ -15,8 +17,7 @@ import { MatOption, MatSelect, MatSelectModule } from '@angular/material/select'
   imports: [
     ReactiveFormsModule, CommonModule,
     NgIf,
-    MatInput,MatFormField, MatButton, MatLabel, MatSelectModule, MatOption
-
+    MatInput,MatFormField, MatButton, MatLabel, MatSelectModule, MatOption, MatProgressSpinnerModule
   ],
   templateUrl: './edit-profile.component.html',
   styleUrl: './edit-profile.component.css'
@@ -26,6 +27,7 @@ export class EditProfileComponent {
   dts = inject(DataTransferService);
   UserService = inject(UserService);
   HelperService = inject(HelperService);
+  snackBar = inject(MatSnackBar);
 
   userDataString = localStorage.getItem("authUser");
   userData = this.userDataString ? JSON.parse(this.userDataString) : {};
@@ -33,6 +35,7 @@ export class EditProfileComponent {
   userProfile!: any;
   departments!: any;
   roles!: any;
+  spinner: boolean = false;
 
   protected userProfileForm = new FormGroup({
     userId: new FormControl(this.userData.userId),
@@ -76,8 +79,23 @@ export class EditProfileComponent {
 
   addOrEditUserProfile()
   {
+    this.spinner = true;
     return this.UserService.addOrEditUserProfile(this.userProfileForm.value)
-      .subscribe();
+      .subscribe(() => {
+        this.openSnack("Profile saved!", "Close");
+        this.spinner = false;
+      });
+  }
+
+  openSnack(msg: string, action: string){
+    this.snackBar.open(msg, action);
+    setTimeout(() => {
+      this.closeSnackBar();
+    }, 3000);
+  }
+
+  closeSnackBar(){
+    this.snackBar.dismiss()
   }
 
 }

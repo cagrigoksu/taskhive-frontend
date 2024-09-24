@@ -1,5 +1,6 @@
-import { NgIf } from '@angular/common';
-import { Component, ViewChild } from '@angular/core';
+import { ProjectService } from './../../../services/project.service';
+import { NgFor, NgIf } from '@angular/common';
+import { Component, inject, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import { MatNativeDateModule, MatOption } from '@angular/material/core';
@@ -10,60 +11,119 @@ import { MatInput } from '@angular/material/input';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTable, MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { ProjectModel } from '../../../models/ProjectModel';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-edit-project',
   standalone: true,
-  imports: [ReactiveFormsModule, MatInput,MatFormField, MatLabel, NgIf,
+  imports: [ReactiveFormsModule, MatInput,MatFormField, MatLabel, NgIf, NgFor,
     MatButton, MatOption, MatDatepickerModule, MatSelectModule, MatNativeDateModule, MatIcon, MatTableModule, MatPaginatorModule,
-  MatSuffix, MatIconButton],
+    MatSuffix, MatIconButton, MatProgressSpinnerModule],
   templateUrl: './edit-project.component.html',
   styleUrl: './edit-project.component.css'
 })
 export class EditProjectComponent {
+
+  private projectService = inject(ProjectService);
+  private _snackBar = inject(MatSnackBar);
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  columnsToDisplay = ['id', 'projectName'];
-  dataSource = new MatTableDataSource<Project>(this.createDummyProjects());
+  columnsToDisplay = ['name', 'status', 'priority'];
+  dataSource!: any;
+  projList: any;
+  projItem!: any;
+
+  userDataString = localStorage.getItem("authUser");
+  userData = this.userDataString ? JSON.parse(this.userDataString) : {};
+
+  statusData : any;
+  priorityData: any;
+
+  loading: boolean = false;
 
   protected projectForm = new FormGroup({
-    projectName: new FormControl('', [Validators.required]),
+    id: new FormControl('', [Validators.required]),
+    name: new FormControl('', [Validators.required]),
     description: new FormControl(''),
     startDate: new FormControl('', [Validators.required]),
     endDate: new FormControl('', [Validators.required]),
-    status: new FormControl('', [Validators.required]),
-    priority: new FormControl('', [Validators.required]),
-    budget: new FormControl('', [Validators.required])
+    statusId: new FormControl('', [Validators.required]),
+    priorityId: new FormControl('', [Validators.required]),
+    budget: new FormControl('', [Validators.required]),
+    createUser: new FormControl(this.userData.userId),
 });
 
   editProject() {
-    console.log(this.projectForm.value);
+    this.loading = true;
+    this.projectService.editProject(this.projectForm.value).subscribe((data:any) =>{
+      this.loadProjList();
+      this.openSnackBar("Project saved!", "Close");
+      this.loading = false
+    });
   }
 
+  ngOnInit() {
+    this.loadProjList();
 
-  createDummyProjects(): Project[] {
-    return [
-      { id: 1, projectName: 'Project Alpha' },
-      { id: 2, projectName: 'Project Beta' },
-      { id: 3, projectName: 'Project Gamma' },
-      { id: 4, projectName: 'Project Delta' },
-      { id: 5, projectName: 'Project Epsilon' },
-      { id: 6, projectName: 'Project Zeta' },
-      { id: 7, projectName: 'Project Eta' },
-      { id: 8, projectName: 'Project Theta' },
-      { id: 9, projectName: 'Project Iota' },
-      { id: 10, projectName: 'Project Kappa' },
-    ];
   }
 
-  ngAfterViewInit() {
-    console.log(this.dataSource)
-    this.dataSource.paginator = this.paginator;
+  loadProjList(){
+
+    this.projectService.getStatus().subscribe((data:any) =>{
+      this.statusData = data;
+
+      this.projectService.getPriority().subscribe((data:any) =>{
+        this.priorityData = data;
+
+        this.projectService.getProjects().subscribe((data:any) =>{
+
+          const statusMap = new Map(this.statusData.map((status: any) => [status.id, status.value]));
+          const priorityMap = new Map(this.priorityData.map((priority: any) => [priority.id, priority.value]));
+
+          this.projList = data.map((project: any) => ({
+            ...project,
+            status: statusMap.get(project.statusId),
+            priority: priorityMap.get(project.priorityId)
+          }));
+
+          this.dataSource = new MatTableDataSource<ProjectModel>(this.projList);
+          this.dataSource.paginator = this.paginator;
+        });
+      });
+
+    });
+
   }
 
-}
+  onRowClick(rowData:any){
+    const rowId = rowData.id;
 
-interface Project {
-  id: number;
-  projectName: string;
+    this.projectService.getProjectById(rowId).subscribe((data:any) => {
+
+      this.projectForm.patchValue({
+        id: data.id,
+        name: data.name,
+        description: data.description,
+        startDate: data.startDate,
+        endDate: data.endDate,
+        statusId: data.statusId,
+        priorityId: data.priorityId,
+        budget: data.budget
+      });
+
+    });
+
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action);
+    setTimeout(() => this.closeSnackBar(), 3000);
+  }
+
+  closeSnackBar(){
+    this._snackBar.dismiss();
+  }
 }

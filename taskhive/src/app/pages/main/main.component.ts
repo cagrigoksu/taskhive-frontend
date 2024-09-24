@@ -48,11 +48,9 @@ export class MainComponent {
 
     this.projectService.getStatus().subscribe((data:any) =>{
       this.statusData = data;
-      console.log(this.statusData);
 
       this.projectService.getPriority().subscribe((data:any) =>{
         this.priorityData = data;
-        console.log(this.priorityData);
 
         this.projectService.getProjects().subscribe((data:any) =>{
 
@@ -64,8 +62,6 @@ export class MainComponent {
             status: statusMap.get(project.statusId),
             priority: priorityMap.get(project.priorityId)
           }));
-
-          console.log("projList:", this.projList);
 
           this.dataSource = new MatTableDataSource<ProjectModel>(this.projList);
           this.dataSource.paginator = this.paginator;

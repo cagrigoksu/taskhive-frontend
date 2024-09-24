@@ -29,6 +29,8 @@
 }
 
 #button-container{
-  text-align: end;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
