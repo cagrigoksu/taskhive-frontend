@@ -12,7 +12,7 @@
           <span class="afacad">Project Description</span>
           <mat-form-field class="full-width">
             <mat-label class="mat-label">Project Name</mat-label>
-            <input matInput formControlName="projectName" required>
+            <input matInput formControlName="name" required>
           </mat-form-field>
 
           <mat-form-field class="full-width">
@@ -46,20 +46,15 @@
           <span class="afacad">Conditions</span>
           <mat-form-field class="full-width">
             <mat-label class="mat-label">Status</mat-label>
-            <mat-select formControlName="status" required>
-              <mat-option value="not started">Not Started</mat-option>
-              <mat-option value="in progress">In Progress</mat-option>
-              <mat-option value="completed">Completed</mat-option>
-              <mat-option value="on hold">On Hold</mat-option>
+            <mat-select formControlName="statusId" required>
+              <mat-option *ngFor="let status of statusData" [value]="status.id">{{status.value}}</mat-option>
             </mat-select>
           </mat-form-field>
 
           <mat-form-field class="full-width">
             <mat-label class="mat-label">Priority</mat-label>
-            <mat-select formControlName="priority" required>
-              <mat-option value="low">Low</mat-option>
-              <mat-option value="medium">Medium</mat-option>
-              <mat-option value="high">High</mat-option>
+            <mat-select formControlName="priorityId" required>
+              <mat-option *ngFor="let priority of priorityData" [value]="priority.id">{{priority.value}}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>

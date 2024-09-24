@@ -24,7 +24,7 @@ export class LogonComponent {
   protected logonForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
-    passwordConfirmation: new FormControl('', [Validators.required])
+    passwordConf: new FormControl('', [Validators.required])
   })
 
   public logon() {

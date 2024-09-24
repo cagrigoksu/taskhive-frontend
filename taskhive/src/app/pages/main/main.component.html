@@ -9,30 +9,19 @@
                 <td mat-cell class="rowCell" *matCellDef="let data"> {{data.id}} </td>
             </ng-container>
 
-            <ng-container matColumnDef="projectName">
+            <ng-container matColumnDef="name">
                 <th mat-header-cell *matHeaderCellDef class="afacad"> Project Name </th>
-                <td mat-cell class="rowCell" *matCellDef="let data"> {{data.projectName}} </td>
+                <td mat-cell class="rowCell" *matCellDef="let data"> {{data.name}} </td>
             </ng-container>
 
-            <ng-container matColumnDef="department">
-                <th mat-header-cell *matHeaderCellDef class="afacad"> Department </th>
-                <td mat-cell class="rowCell" *matCellDef="let data"> {{data.department}} </td>
+            <ng-container matColumnDef="priority">
+                <th mat-header-cell *matHeaderCellDef class="afacad"> Priority </th>
+                <td mat-cell class="rowCell" *matCellDef="let data"> {{data.priority}} </td>
             </ng-container>
-
-            <ng-container matColumnDef="team">
-                <th mat-header-cell *matHeaderCellDef class="afacad"> Team </th>
-                <td mat-cell class="rowCell" *matCellDef="let data"> {{data.team}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="manager">
-                <th mat-header-cell *matHeaderCellDef class="afacad"> Manager </th>
-                <td mat-cell class="rowCell" *matCellDef="let data"> {{data.manager}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="numberOfMembers">
-                <th mat-header-cell *matHeaderCellDef class="afacad"> Number of Members </th>
-                <td mat-cell class="rowCell" *matCellDef="let data"> {{data.numberOfMembers}} </td>
-            </ng-container>
+            <ng-container matColumnDef="status">
+              <th mat-header-cell *matHeaderCellDef class="afacad"> Status </th>
+              <td mat-cell class="rowCell" *matCellDef="let data"> {{data.status}} </td>
+          </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
             <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
